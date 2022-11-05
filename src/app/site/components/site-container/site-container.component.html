@@ -1,0 +1,49 @@
+<!-- <nav class="navbar navbar-dark " style="background-color: #103793;">
+    <div class="container">
+        <a class="navbar-brand">Covid 19 Statistics <span *ngIf="year">{{year}}</span></a>
+    </div>
+</nav> -->
+
+<img src="../../../../assets/banner.png" alt="">
+<div style="height: 75vh;">
+    <div class="container" *ngIf="!loading">
+        <div>
+        </div>
+        <div class="mt-4">
+            <br>
+            <p class="lead"><strong>Welcome to the COVID 19 statistics website.</strong> </p>
+            <br>
+            <p class="lead"> Please use the search drop down on the right to view
+                statistics for a specific country or hover over the map to view the current summary of active cases.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <app-covid-map [showMap]="showMap" [Highcharts]="Highcharts" [constructorType]="chartConstructor"
+                    [options]="chartOptions">
+                </app-covid-map>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="my-2">
+                    <ng-select [items]="data" bindLabel="name" autofocus bindValue="country" bindLabel="name"
+                        [(ngModel)]="selectedCountryName" (change)="onSelectCountry($event)" (clear)="onClearCountry()">
+                        <ng-template ng-label-tmp let-item="item">
+                            <img height="15" width="15" [src]="item.image" />
+                            {{item.name}}
+                        </ng-template>
+                    </ng-select>
+                </div>
+                <ng-container>
+                    <app-covid-stats-cards [selectedCountry]="selectedCountry"></app-covid-stats-cards>
+                </ng-container>
+            </div>
+        </div>
+        <ng-container *ngIf="selectedCountry && selectedCountryName !== 'All'">
+            <div class="row mt-4">
+                <app-country-history-container [selectedCountry]="selectedCountry"></app-country-history-container>
+            </div>
+        </ng-container>
+    </div>
+
+    <app-spinner *ngIf="loading"></app-spinner>
+</div>

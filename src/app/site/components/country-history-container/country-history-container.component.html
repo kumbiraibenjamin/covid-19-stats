@@ -1,0 +1,6 @@
+<div style="min-height: 200px;">
+    <div *ngIf="!loading">
+        <app-covid-history-cards [data]="data" [showgraphs]="!loading"></app-covid-history-cards>
+    </div>
+    <app-spinner *ngIf="loading"></app-spinner>
+</div>

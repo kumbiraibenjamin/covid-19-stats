@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-lg-6 col0md-6 col-sm-12">
+        <app-covid-stat-card [color]="'#004a9f'" [title]="'Active Cases'" [count]="selectedCountry?.cases?.active">
+        </app-covid-stat-card>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <app-covid-stat-card [color]="'#0dcaf0'" [title]="'New Cases'" [count]="selectedCountry?.cases?.new">
+        </app-covid-stat-card>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <app-covid-stat-card [color]="'#f1df40'" [title]="'Total Cases'" [count]="selectedCountry?.cases?.total">
+        </app-covid-stat-card>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <app-covid-stat-card [color]="'#ffc107'" [title]="'Critical'" [count]="selectedCountry?.cases?.critical">
+        </app-covid-stat-card>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <app-covid-stat-card [color]="'#15ca20'" [title]="'Recoveries'" [count]="selectedCountry?.cases?.recovered">
+        </app-covid-stat-card>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <app-covid-stat-card [color]="'#500550'" [title]="'New Deaths'" [count]="selectedCountry?.deaths?.new">
+        </app-covid-stat-card>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <app-covid-stat-card [color]="'#fd3550'" [title]="'Deaths'" [count]="selectedCountry?.deaths?.total">
+        </app-covid-stat-card>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <app-covid-stat-card [color]="'#f54ea2'" [title]="'Tests Completed'" [count]="selectedCountry?.tests?.total">
+        </app-covid-stat-card>
+    </div>
+
+</div>
