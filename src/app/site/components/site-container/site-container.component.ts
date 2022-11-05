@@ -459,8 +459,8 @@ export class SiteContainerComponent implements OnInit, OnDestroy {
   }
 
   onClearCountry() {
-    this.selectedCountry = this.data[0];
-    this.selectedCountryName = "Global";
+    this.selectedCountry = this.data.find((c: Response) => c.country === 'All');
+    this.selectedCountryName = "All";
   }
 
   ngOnDestroy() {

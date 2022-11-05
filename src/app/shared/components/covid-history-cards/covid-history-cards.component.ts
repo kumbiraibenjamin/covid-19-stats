@@ -11,6 +11,7 @@ export class CovidHistoryCardsComponent implements OnInit, OnChanges {
 
   @Input() data: Response[] = [];
   @Input() showgraphs: boolean = false;
+  @Input() selectedCountry: Response | undefined;
 
   casesCharts: { caseChartData: any, caseChartOptions: any, caseChartType: any } | undefined;
   deathsCharts: { deathsChartData: any, deathsChartOptions: any, deathsChartType: any } | undefined;
@@ -21,6 +22,7 @@ export class CovidHistoryCardsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    console.log(this.data)
     this.casesCharts = this.generateCasesData(this.data);
     this.deathsCharts = this.generateDeathsData(this.data);
   }

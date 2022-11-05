@@ -1,9 +1,3 @@
-<!-- <nav class="navbar navbar-dark " style="background-color: #103793;">
-    <div class="container">
-        <a class="navbar-brand">Covid 19 Statistics <span *ngIf="year">{{year}}</span></a>
-    </div>
-</nav> -->
-
 <img src="../../../../assets/banner.png" alt="">
 <div style="height: 75vh;">
     <div class="container" *ngIf="!loading">
@@ -18,11 +12,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <app-covid-map [showMap]="showMap" [Highcharts]="Highcharts" [constructorType]="chartConstructor"
-                    [options]="chartOptions">
-                </app-covid-map>
-            </div>
+
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="my-2">
                     <ng-select [items]="data" bindLabel="name" autofocus bindValue="country" bindLabel="name"
@@ -36,6 +26,11 @@
                 <ng-container>
                     <app-covid-stats-cards [selectedCountry]="selectedCountry"></app-covid-stats-cards>
                 </ng-container>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <app-covid-map [showMap]="showMap" [Highcharts]="Highcharts" [constructorType]="chartConstructor"
+                    [options]="chartOptions">
+                </app-covid-map>
             </div>
         </div>
         <ng-container *ngIf="selectedCountry && selectedCountryName !== 'All'">
