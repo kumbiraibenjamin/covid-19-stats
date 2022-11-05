@@ -22,7 +22,6 @@ export class CovidHistoryCardsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.data)
     this.casesCharts = this.generateCasesData(this.data);
     this.deathsCharts = this.generateDeathsData(this.data);
   }

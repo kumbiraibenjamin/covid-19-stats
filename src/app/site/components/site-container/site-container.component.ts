@@ -75,7 +75,7 @@ export class SiteContainerComponent implements OnInit, OnDestroy {
         },
         subtitle: {
           text:
-            ''
+            'Hover over the map to view the current summary of active cases'
         },
         mapNavigation: {
           enabled: true,
@@ -461,6 +461,13 @@ export class SiteContainerComponent implements OnInit, OnDestroy {
   onClearCountry() {
     this.selectedCountry = this.data.find((c: Response) => c.country === 'All');
     this.selectedCountryName = "All";
+  }
+
+  onScrollClick(id: any) {
+    let el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" })
+    }
   }
 
   ngOnDestroy() {

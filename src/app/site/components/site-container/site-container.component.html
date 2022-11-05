@@ -1,14 +1,15 @@
-<img src="../../../../assets/banner.png" alt="">
+<img src="../../../../assets/banner.png" style="width: 100%; height: auto;min-height: 80px; object-fit: cover;" alt="">
 <div style="height: 75vh;">
     <div class="container" *ngIf="!loading">
         <div>
         </div>
-        <div class="mt-4">
+        <div class="mt-4" id="top">
             <br>
             <p class="lead"><strong>Welcome to the COVID 19 statistics website.</strong> </p>
             <br>
-            <p class="lead"> Please use the search drop down on the right to view
-                statistics for a specific country or hover over the map to view the current summary of active cases.</p>
+            <p class="lead"> Please use the search drop down to view live
+                statistics by country then view monthly historical data for the selected country in the graphs below.
+            </p>
         </div>
 
         <div class="row">
@@ -27,7 +28,8 @@
                     <app-covid-stats-cards [selectedCountry]="selectedCountry"></app-covid-stats-cards>
                 </ng-container>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12 hide-mobile ">
+                <!-- <p class="lead"></p> -->
                 <app-covid-map [showMap]="showMap" [Highcharts]="Highcharts" [constructorType]="chartConstructor"
                     [options]="chartOptions">
                 </app-covid-map>
@@ -37,6 +39,13 @@
             <div class="row mt-4">
                 <app-country-history-container [selectedCountry]="selectedCountry"></app-country-history-container>
             </div>
+            <div class="mt-4 d-flex justify-content-end">
+                <!-- <button class="btn btn-outline-secondary">Back To Top</button> -->
+                <div> <button type="button" class="btn btn-outline-dark mb-4" (click)="onScrollClick('top')">Back to
+                        Top</button>
+                </div>
+            </div>
+
         </ng-container>
     </div>
 
